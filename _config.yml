@@ -227,3 +227,15 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+# defautl values
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "archive"
+
+webrick:
+  headers:
+    Cache-Control: "No-Cache"
