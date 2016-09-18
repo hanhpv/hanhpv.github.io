@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Install Nginx, PHP-FPM, Mysql on Mac OS X"
+author: "Hans Phung"
+categories: server macosx
+---
+
 # Xcode
 Make sure you have the latest version of XCode installed. [Available from the AppStore](https://itunes.apple.com/gb/app/xcode/id497799835?mt=12).
 
