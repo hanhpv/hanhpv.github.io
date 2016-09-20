@@ -30,7 +30,7 @@ brew doctor
 Update and Upgrade ```brew``` formulas:
 
 ```
-brew update && brew upgarde
+brew update && brew upgrade
 ```
 
 # Install nginx
