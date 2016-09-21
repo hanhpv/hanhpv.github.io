@@ -4,7 +4,11 @@ title: About
 permalink: /about/
 ---
 
-{% include image.html url="/images/octojekyll.png" caption="Octojekyll." width=300 align="right" %}
+{% include image.html url="/images/avatar.png" caption="Me at the Paradise Cave, Quang Binh 2016" width=300 align="right" %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit mattis nulla eu cursus. Fusce finibus, orci sit amet tincidunt fermentum, risus ante pharetra nisi, eget tempus tellus tellus ut est. Nunc tempus cursus arcu mattis ultricies. Cras volutpat purus et lectus facilisis tempor. Suspendisse at lorem feugiat, feugiat massa vel, scelerisque dolor. Proin justo nisl, mattis eu sapien in, efficitur fringilla nulla. Phasellus placerat, lacus in venenatis tristique, risus dolor eleifend felis, vitae finibus augue nibh ut libero. Morbi sit amet tincidunt lorem.
+I'm Hans. I'm currently a Magento developer.
+
+I am an ambition person, who loves learning new things and always keep me up to date with the new technologies. I'm trying to be a full stack web developer.
+
+In the free time, I like reading books, playing guitar and listening to music. I love travel also. I hope I can travel to Japan one day.
 
