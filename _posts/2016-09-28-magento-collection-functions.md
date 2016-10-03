@@ -38,6 +38,8 @@ public function addAttributeToSelect($attribute, $joinType = false)
 ### Usage
 Join attribute value table to select
 
+This function is only available in EAV collection class, which extends from  ```Mage_Eav_Model_Entity_Collection_Abstract```
+
 ### Definition
 ```php
 public function joinAttribute($alias, $attribute, $bind, $filter=null, $joinType='inner', $storeId=null)
@@ -93,3 +95,26 @@ FROM `customer_entity` AS `e`
        (`at_billing_postcode`.`attribute_id` = '30')
 WHERE (`e`.`entity_type_id` = '1')
 ```
+
+# joinField
+---
+
+### Usage
+Join regular table field and use an attribute as foreign key
+
+This function is only available in EAV collection class, which extends from  ```Mage_Eav_Model_Entity_Collection_Abstract```
+
+### Definition
+```php
+public function joinField($alias, $table, $field, $bind, $cond=null, $joinType='inner')
+```
+
+### Parameters
+* ```$alias```: the alias of joined filed in select (ex: ```store_name```)
+* ```$table```: the table to join (ex: ```core/store```)
+* ```$field```: the exactly field name of ```$alias``` (ex: ```name```)
+* ```$bind```: the join condition, in form of ```joined_field = attribute_code_of_main_entity```
+* ```$cond```: additional condition
+* ```$joinType```: ```left``` or ```inner```
+
+### Examples
