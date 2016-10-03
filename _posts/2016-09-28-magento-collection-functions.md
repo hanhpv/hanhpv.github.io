@@ -4,7 +4,7 @@ title: "Magento 1 Collection functions"
 author: "Hans Phung"
 categories: magento1
 ---
-In this article, we cover some functions of Magento collection class.
+In this article, we cover some useful functions of Magento collection class.
 
 # addAttributeToSelect
 ---
@@ -29,7 +29,7 @@ This function is only available in EAV collection class, which extends from  ```
 public function addAttributeToSelect($attribute, $joinType = false)
 ```
 * ```$attribute``` is the attribute code we want to select, use '*' to select all attributes
-* ```$joinType``` can have one of three values: ```true```, ```inner```, ```left```. If ```$joinType``` is specified, the attribute value table will be joined in the sql select, then there is no need to use another query to get the attribute value.
+* ```$joinType``` can have one of three values: ```boolean```, ```inner```, ```left```. If ```$joinType``` is specified, the attribute value table will be joined in the sql select, then there is no need to use another query to get the attribute value.
 
 # joinAttribute
 ---
@@ -68,4 +68,28 @@ FROM `catalog_product_entity` AS `e`
   INNER JOIN `catalog_product_entity_varchar` AS `at_default_name`
     ON (`at_default_name`.`entity_id` = `e`.`entity_id`) AND (`at_default_name`.`attribute_id` = '63') AND
        (`at_default_name`.`store_id` = 0)
+```
+
+We can join the attribute of other entity type like below. This will return the ```postcode``` value of default customer billing address.
+
+```php
+$collection = Mage::getResourceModel('customer/customer_collection')
+                          ->addAttributeToSelect('email')
+                          ->addAttributeToSelect('created_at')
+                          ->joinAttribute('billing_postcode', 'customer_address/postcode', 'default_billing', null, 'left');
+```
+The resulted SELECT
+
+```
+SELECT
+  `e`.*,
+  `at_default_billing`.`value`  AS `default_billing`,
+  `at_billing_postcode`.`value` AS `billing_postcode`
+FROM `customer_entity` AS `e`
+  LEFT JOIN `customer_entity_int` AS `at_default_billing`
+    ON (`at_default_billing`.`entity_id` = `e`.`entity_id`) AND (`at_default_billing`.`attribute_id` = '13')
+  LEFT JOIN `customer_address_entity_varchar` AS `at_billing_postcode`
+    ON (`at_billing_postcode`.`entity_id` = `at_default_billing`.`value`) AND
+       (`at_billing_postcode`.`attribute_id` = '30')
+WHERE (`e`.`entity_type_id` = '1')
 ```
