@@ -110,11 +110,30 @@ public function joinField($alias, $table, $field, $bind, $cond=null, $joinType='
 ```
 
 ### Parameters
-* ```$alias```: the alias of joined filed in select (ex: ```store_name```)
-* ```$table```: the table to join (ex: ```core/store```)
-* ```$field```: the exactly field name of ```$alias``` (ex: ```name```)
+* ```$alias```: the alias of joined filed in select (ex: ```group_name_name```)
+* ```$table```: the table to join (ex: ```customer/customer_group```)
+* ```$field```: the exactly field name of ```$alias``` (ex: ```customer_group_code```)
 * ```$bind```: the join condition, in form of ```joined_field = attribute_code_of_main_entity```
 * ```$cond```: additional condition
 * ```$joinType```: ```left``` or ```inner```
 
 ### Examples
+Add customer group name to customer collection entities:
+
+```php
+$collection = Mage::getModel('customer/customer')->getCollection();
+$collection->joinField('group_name', 'customer/customer_group', 'customer_group_code', 'customer_group_id=group_id');
+```
+And the result select:
+
+```
+SELECT
+  `e`.*,
+  `at_group_name`.`customer_group_code` AS `group_name`
+FROM `customer_entity` AS `e`
+  INNER JOIN `customer_group` AS `at_group_name`
+    ON (at_group_name.`customer_group_id` = e.group_id)
+WHERE (`e`.`entity_type_id` = '1')
+```
+
+{% include disqus.html %}
