@@ -17,6 +17,7 @@ This function is only available in EAV collection class, which extends from  ```
 
 ### Definition
 ```php
+<?php
 /**
  * Add attribute to entities in collection
  *
@@ -42,6 +43,7 @@ This function is only available in EAV collection class, which extends from  ```
 
 ### Definition
 ```php
+<?php
 public function joinAttribute($alias, $attribute, $bind, $filter=null, $joinType='inner', $storeId=null)
 ```
 
@@ -55,6 +57,7 @@ public function joinAttribute($alias, $attribute, $bind, $filter=null, $joinType
 
 ### Example
 ```php
+<?php
 $collection = Mage::getModel('catalog/product')->getCollection();
 $collection->joinAttribute('name', 'catalog_product/name', 'entity_id', null, 'inner',Mage_Core_Model_App::ADMIN_STORE_ID)
 ```
@@ -75,6 +78,7 @@ FROM `catalog_product_entity` AS `e`
 We can join the attribute of other entity type like below. This will return the ```postcode``` value of default customer billing address.
 
 ```php
+<?php
 $collection = Mage::getResourceModel('customer/customer_collection')
                           ->addAttributeToSelect('email')
                           ->addAttributeToSelect('created_at')
@@ -106,6 +110,7 @@ This function is only available in EAV collection class, which extends from  ```
 
 ### Definition
 ```php
+<?php
 public function joinField($alias, $table, $field, $bind, $cond=null, $joinType='inner')
 ```
 
@@ -121,6 +126,7 @@ public function joinField($alias, $table, $field, $bind, $cond=null, $joinType='
 Add customer group name to customer collection entities:
 
 ```php
+<?php
 $collection = Mage::getModel('customer/customer')->getCollection();
 $collection->joinField('group_name', 'customer/customer_group', 'customer_group_code', 'customer_group_id=group_id');
 ```
