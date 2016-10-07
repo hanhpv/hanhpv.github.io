@@ -9,7 +9,7 @@ layout: default
 {% if page.categories %}
   in
   {% for cat in page.categories %}
-  <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+  <a href="/category/{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
   {% endfor %}
 
 {% endif %}
@@ -19,5 +19,7 @@ layout: default
   <article class="post-content">
     {{ content }}
   </article>
+
+  {% include disqus.html %}
 
 </div>

@@ -8,7 +8,6 @@ permalink: /category/magento1/magento-collection-functions
 In this article, we cover some useful functions of Magento collection class.
 
 # addAttributeToSelect
----
 
 
 ### Usage
@@ -34,7 +33,6 @@ public function addAttributeToSelect($attribute, $joinType = false)
 * ```$joinType``` can have one of three values: ```boolean```, ```inner```, ```left```. If ```$joinType``` is specified, the attribute value table will be joined in the sql select, then there is no need to use another query to get the attribute value.
 
 # joinAttribute
----
 
 
 ### Usage
@@ -102,7 +100,6 @@ WHERE (`e`.`entity_type_id` = '1')
 ```
 
 # joinField
----
 
 ### Usage
 Join regular table field and use an attribute as foreign key
@@ -144,7 +141,6 @@ WHERE (`e`.`entity_type_id` = '1')
 ```
 
 # joinTable
----
 
 ### Usage
 Join a table
@@ -188,5 +184,3 @@ FROM `catalog_product_entity` AS `e`
   INNER JOIN `wishlist_item` AS `t_wi`
     ON (t_wi.product_id = e.entity_id) AND (t_wi.wishlist_id = '1') AND (t_wi.store_id IN (3))
 ```
-
-{% include disqus.html %}
