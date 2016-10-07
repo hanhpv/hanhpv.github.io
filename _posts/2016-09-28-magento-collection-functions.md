@@ -3,6 +3,7 @@ layout: post
 title: "Magento 1 Collection functions"
 author: "Hans Phung"
 categories: magento1
+permalink: /category/magento1/magento-collection-functions
 ---
 In this article, we cover some useful functions of Magento collection class.
 

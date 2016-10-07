@@ -1,13 +1,11 @@
 ---
 layout: page
-title: Blog
-permalink: /blog/
+title: Magento 1 Articles
+permalink: /category/magento1/
 ---
 
-Tell us about your blog. Hopefully it's cool.
-
 <ul class="listing">
-{% for post in site.posts %}
+{% for post in site.categories.magento1 %}
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
   {% if year != y %}
     {% assign year = y %}
