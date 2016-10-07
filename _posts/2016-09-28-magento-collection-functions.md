@@ -142,4 +142,50 @@ FROM `customer_entity` AS `e`
 WHERE (`e`.`entity_type_id` = '1')
 ```
 
+# joinTable
+---
+
+### Usage
+Join a table
+
+### Parameters
+```php
+<?php
+public function joinTable($table, $bind, $fields = null, $cond = null, $joinType = 'inner')
+```
+* ```$table```: ```string|array``` name of the table to join, use ```array``` to specify table alias
+* ```$bind```: join condition
+* ```$fields```: ```string|array``` fields to select
+* ```$cond```: ```null|array``` where condition
+* ```$joinType```: ```inner``` or ```left```
+
+### Examples
+```php
+<?php
+$collection =  Mage::getResourceModel('wishlist/product_collection');
+$collection->joinTable(
+    array('t_wi' => 'wishlist/item'),
+    'product_id = entity_id',
+    array(
+        'product_id'                => 'product_id',
+        'wishlist_item_description' => 'description'
+    ),
+    array(
+        'wishlist_id'               => '1',
+        'store_id'                  => array('in' => [3])
+    )
+);
+```
+result select:
+
+```
+SELECT
+  `e`.*,
+  `t_wi`.`product_id`,
+  `t_wi`.`description` AS `wishlist_item_description`
+FROM `catalog_product_entity` AS `e`
+  INNER JOIN `wishlist_item` AS `t_wi`
+    ON (t_wi.product_id = e.entity_id) AND (t_wi.wishlist_id = '1') AND (t_wi.store_id IN (3))
+```
+
 {% include disqus.html %}
