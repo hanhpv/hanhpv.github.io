@@ -1,14 +1,15 @@
 ---
 layout: page
 title: About
-permalink: /about/
+featured_image: /assets/images/pages/about.jpg
 ---
 
-{% include image.html url="/images/avatar.png" caption="Me at the Paradise Cave, Quang Binh 2016" width=300 align="right" %}
+Charles Lavoie is a senior developer from Vilnius, Lithuania. After graduating from The College with a degree in **Computer Science**, he worked for three small web shops where he honed his development skills and love for JavaScript.
 
-I'm Hans. I'm currently a Magento developer.
+His work has been recognized by Communication Arts, IBM, How, ID, IdN, AIGA, Effie, Archive, Graphis, AdFed and Rockport. **Net** magazine named him a person to watch in 2018.
 
-I am an ambition person, who loves learning new things and always keep me up to date with the new technologies. I'm trying to be a full stack web developer.
+>The world always seems brighter when you’ve just made something that wasn’t there before. <cite>Neil Gaiman</cite>
 
-In the free time, I like reading books, playing guitar and listening to music. I love travel also. I hope I can travel to Japan one day.
+As a hobby, Daniel authors the most influential JavaScript blog in Lithuania with over 100,000 page views a month. He lives in Vilnius with his beautiful wife, two boys and one girl.
 
+*Thank You for reading!*
